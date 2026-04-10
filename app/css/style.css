@@ -97,6 +97,26 @@ pre code {
 	background-color: beige;
 }
 
+#tools {
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+#download-pdf {
+	background-color: #FD6C6C;
+	color: #fff;
+	border: none;
+	padding: 0.5em 1.5em;
+	font-size: 1em;
+	font-family: 'Open Sans', 'Droid Arabic Naskh', serif;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#download-pdf:hover {
+	background-color: #e55b5b;
+}
+
 #footer {
 
 }

@@ -24,6 +24,33 @@
 			localStorage['content'] = content;
 	    	$('#output').html(marked(content));
 		}, 3000);
+
+		$('#download-pdf').on('click', function() {
+			var output = document.getElementById('output');
+
+			// Create a clone to style for PDF without affecting the page
+			var clone = output.cloneNode(true);
+			clone.style.direction = 'rtl';
+			clone.style.fontFamily = "'Open Sans', 'Droid Arabic Naskh', serif";
+			clone.style.padding = '1em';
+
+			// Ensure code/pre blocks stay LTR in the PDF
+			var codeBlocks = clone.querySelectorAll('code, pre');
+			for (var i = 0; i < codeBlocks.length; i++) {
+				codeBlocks[i].style.direction = 'ltr';
+				codeBlocks[i].style.textAlign = 'left';
+			}
+
+			var opt = {
+				margin:       10,
+				filename:     'rtlmd-export.pdf',
+				image:        { type: 'jpeg', quality: 0.98 },
+				html2canvas:  { scale: 2, useCORS: true },
+				jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+			};
+
+			html2pdf().set(opt).from(clone).save();
+		});
 	});
 
 }());
