@@ -128,3 +128,30 @@ pre code {
 	font-size: 0.9em;
 	font-family: 'Fira Mono', sans-serif;
 }
+
+@media print {
+	#header, #tools, #textbox, #footer, .github-corner {
+		display: none !important;
+	}
+
+	#editor {
+		display: block !important;
+	}
+
+	#output {
+		width: 100% !important;
+		direction: rtl;
+		font-family: 'Open Sans', 'Droid Arabic Naskh', serif;
+		padding: 0;
+		margin: 0;
+	}
+
+	#output code, #output pre {
+		direction: ltr;
+		text-align: left;
+	}
+
+	body {
+		background: #fff;
+	}
+}
