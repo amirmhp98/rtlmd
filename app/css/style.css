@@ -134,16 +134,39 @@ pre code {
 		display: none !important;
 	}
 
-	#editor {
+	/* Break Pure.css grid so output fills the full page */
+	#editor.pure-g {
 		display: block !important;
+		direction: rtl;
 	}
 
-	#output {
+	#output.pure-u-1-2 {
 		width: 100% !important;
+		display: block !important;
 		direction: rtl;
 		font-family: 'Open Sans', 'Droid Arabic Naskh', serif;
-		padding: 0;
+		padding: 1em 0;
 		margin: 0;
+	}
+
+	/* RTL bullets: move markers to the right side */
+	#output ul, #output ol {
+		direction: rtl;
+		padding-right: 2em;
+		padding-left: 0;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	#output li {
+		text-align: right;
+	}
+
+	/* Proper spacing for Persian text */
+	#output p, #output li, #output h1, #output h2, #output h3,
+	#output h4, #output h5, #output h6 {
+		word-spacing: normal;
+		line-height: 1.8;
 	}
 
 	#output code, #output pre {
